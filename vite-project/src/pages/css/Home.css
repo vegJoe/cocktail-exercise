@@ -1,0 +1,43 @@
+#root {
+    background-color: black;
+}
+
+.randomCocktail {
+    justify-content: center;
+    display: flex;
+}
+
+.randomCocktailArt {
+    flex-direction: column;
+    align-items: center;
+    width: 40rem;
+    background-color: black;
+    border: solid whitesmoke 1px;
+    margin-bottom: 2rem;
+    display: flex;
+}
+
+.cocktailName {
+    font-size: 40px;
+    background-color: black;
+    color: antiquewhite;
+    justify-content: center;
+    display: flex;
+}
+
+.randomCocktailImage {
+    width: 35rem;
+    align-items: center;
+    border-radius: 2%;
+    justify-content: space-around;
+    display: flex;
+}
+
+.randomCocktailButton {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: whitesmoke;
+    background-color: black;
+    width: 6rem;
+    display: flex;
+}
