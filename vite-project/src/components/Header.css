@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border: solid whitesmoke 2px;
+    border-bottom: solid whitesmoke 2px;
     background-color: black;
     color: whitesmoke;
     padding: 0.6rem 2rem;
