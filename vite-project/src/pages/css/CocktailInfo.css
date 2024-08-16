@@ -1,0 +1,17 @@
+.drinkInfo {
+    display: flex;
+}
+
+.drinkDetails {
+    margin-left: 4rem;
+}
+
+.cocktailInfoText {
+    color: whitesmoke;
+}
+
+.CocktailImage {
+    border-radius: 2%;
+    margin-left: 2rem;
+    padding-bottom: 6rem;
+}

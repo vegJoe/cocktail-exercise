@@ -1,12 +1,14 @@
-import { useContext, useState, useEffect } from "react";
-import { CocktailInfoContext } from "./Home"
-import { useLoaderData } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import "./css/CocktailInfo.css"
 
-export const CocktailInfo = ({}) => {
+export const CocktailInfo = () => {
+    
+    type RouteData = {
+        drinkId: string | undefined
+    };
 
-    /*const drinkId = useContext(CocktailInfoContext);*/
-
-    const { drinkId } = useLoaderData();
+    const { drinkId } = (useParams() as RouteData) || {};
 
     interface Cocktail {
         idDrink: string;
@@ -61,10 +63,27 @@ export const CocktailInfo = ({}) => {
         }
       }, [drinkId]);
 
-      console.log("this is the drink id FROM home:" + drinkId)
-      console.log("this is the drink object from cocktailinfo:" + cocktailData?.strDrink)
-
     return(
-        <div></div>
+        <div>
+            <article className="drinkInfo">
+                <div>
+                    <img src={cocktailData?.strDrinkThumb} alt="#" className="CocktailImage" />
+                </div>
+                <div className="drinkDetails">
+                    <h1 className="cocktailInfoText">{cocktailData?.strDrink}</h1>
+                    <h3 className="cocktailInfoText">Category</h3>
+                    <p className="cocktailInfoText">{cocktailData?.strCategory}</p>
+                    <h3 className="cocktailInfoText">Tags</h3>
+                    <p className="cocktailInfoText">{cocktailData?.strTags}</p>
+                    <h3 className="cocktailInfoText">Measurements</h3>
+                    {cocktailData?.strMeasurements.map((measurment, index) => (
+                        <p key={index} className="cocktailInfoText">
+                            {measurment} - {cocktailData?.strIngredients[index] || ""}
+                        </p>
+                    ))}
+                    <h2 className="cocktailInfoText">Serve in a {cocktailData?.strGlass}</h2>
+                </div>
+            </article>
+        </div>
     )
 }

@@ -1,7 +1,6 @@
-import { useState, useEffect, createContext, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect, createContext } from "react";
+import { useNavigate } from "react-router-dom";
 import "./css/Home.css"
-import { CocktailInfo } from './CocktailInfo';
 
 
 export interface ICocktail {
@@ -33,30 +32,23 @@ export const Home = () => {
     fetchCocktail();
   }, []);
 
-  let test:boolean = false;
-
   const handleOnClick = () => {
-    console.log("this is the id in home: " + cocktailData?.idDrink)
-    test = true;
     navigate(`/cocktailinfo/${cocktailData?.idDrink}`);
   }
 
-  console.log(cocktailData);
-
   return (
-      <div className='randomCocktail'>
-        <article className='randomCocktailArt'>
+      <div className="randomCocktail">
+        <article className="randomCocktailArt">
           { cocktailData ? (
-            <div id='currentDrink' onClick={handleOnClick}>
+            <div id="currentDrink" onClick={handleOnClick}>
               <h1 className="cocktailName">{cocktailData.strDrink}</h1>
-              <img src={cocktailData.strDrinkThumb} alt="#" className='randomCocktailImage' />
+              <img src={cocktailData.strDrinkThumb} alt="#" className="randomCocktailImage" />
             </div>
           ) : (
             <p>Loading...</p>
           )}
-          <button onClick={fetchCocktail} className='randomCocktailButton'>Fetch New Cocktail</button>
+          <button onClick={fetchCocktail} className="randomCocktailButton">Fetch New Cocktail</button>
         </article>
-          {cocktailData && <CocktailInfo />}
       </div>
   )
 }
